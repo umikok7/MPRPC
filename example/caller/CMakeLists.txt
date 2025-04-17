@@ -1,5 +1,6 @@
 # set(SRC_LIST calluserservice.cc ../user.pb.cc)
-set(SRC_LIST callfriendservice.cc ../friend.pb.cc)
+# set(SRC_LIST callfriendservice.cc ../friend.pb.cc)
+set(SRC_LIST callgroupservice.cc ../group.pb.cc)
 
 add_executable(consumer ${SRC_LIST})
 

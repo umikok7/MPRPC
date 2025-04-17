@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package fixbug;
+
+option cc_generic_services = true;
+
+message ResultCode{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+message createGroupRequest{
+    uint32 userid = 1;
+    string groupname = 2;
+    uint32 groupid = 3;
+    string groupdesc = 4;
+}
+
+message createGroupResponse{
+    ResultCode result = 1;
+    bool success = 2;
+}
+
+message addGroupRequest{
+    uint32 userid = 1;
+    string groupname = 2;
+}
+
+message addGroupResponse{
+    ResultCode result = 1;
+    repeated string group = 2;
+}
+
+// 好友模块
+service GroupServiceRpc{
+    rpc createGroup(createGroupRequest) returns(createGroupResponse);
+    rpc addGroup(addGroupRequest) returns(addGroupResponse);
+}
+
